@@ -60,11 +60,16 @@ project.fragment.lock.json
 *.vssscc
 *.orig
 
+# Debug files
+*.pdb
+*.mdb
+*.svclog
+*.dbg
+
 # Windows crash dump files
 *.dmp
 
 # Azure Pipelines artifacts
-*.pdb
 *.dbmdl
 *.bak
 *.sql
