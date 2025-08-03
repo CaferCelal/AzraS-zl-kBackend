@@ -74,6 +74,7 @@ project.fragment.lock.json
 *.sqlite3
 *.db
 *.db3
+*.app.db
 
 # Global JSON
 global.json
