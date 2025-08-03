@@ -156,6 +156,52 @@ namespace AzraSözlük.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "TagModel",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    UserId = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TagModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TagModel_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BlogModel",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    BlogHeader = table.Column<string>(type: "TEXT", nullable: false),
+                    BlogContent = table.Column<string>(type: "TEXT", nullable: false),
+                    UserId = table.Column<string>(type: "TEXT", nullable: false),
+                    TagId = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlogModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BlogModel_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BlogModel_TagModel_TagId",
+                        column: x => x.TagId,
+                        principalTable: "TagModel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -192,6 +238,21 @@ namespace AzraSözlük.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BlogModel_TagId",
+                table: "BlogModel",
+                column: "TagId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BlogModel_UserId",
+                table: "BlogModel",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TagModel_UserId",
+                table: "TagModel",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -213,7 +274,13 @@ namespace AzraSözlük.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "BlogModel");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "TagModel");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

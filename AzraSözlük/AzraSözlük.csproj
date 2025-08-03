@@ -1,9 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
+      <TargetFramework>net8.0</TargetFramework>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>enable</ImplicitUsings>
+      <EnableDefaultStaticWebAssets>false</EnableDefaultStaticWebAssets>
+      <DisableImplicitStaticWebAssets>true</DisableImplicitStaticWebAssets>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,7 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
+      <ProjectReference Include="..\CaferEmailLib\CaferEmailLib.csproj" />
+      <ProjectReference Include="..\CaferVerifierLib\CaferVerifierLib.csproj" />
     </ItemGroup>
 
 </Project>
