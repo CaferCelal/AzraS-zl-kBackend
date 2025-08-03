@@ -1,0 +1,73 @@
+## Ignore Visual Studio temporary files, build results, and
+## user-specific files
+
+# Build Folders
+bin/
+obj/
+[Ll]og/
+TestResults/
+out/
+artifacts/
+
+# Rider project files
+.idea/
+*.sln.iml
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# ASP.NET temporary files
+**/App_Data/Logs/
+**/App_Data/Temp/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Package restore log
+project.lock.json
+project.fragment.lock.json
+
+# Visual Studio Code settings
+.vscode/
+
+# DotCover
+.idea/.idea.DotSettings
+
+# Resharper
+*.DotSettings.user
+
+# Tye
+.tye/
+
+# dotnet watch
+**/.dotnet-watch.json
+
+# Others
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+*.orig
+
+# Windows crash dump files
+*.dmp
+
+# Azure Pipelines artifacts
+*.pdb
+*.dbmdl
+*.bak
+*.sql
+
+# Global JSON
+global.json
